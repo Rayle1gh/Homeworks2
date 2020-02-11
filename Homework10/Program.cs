@@ -7,13 +7,13 @@ namespace Homework10
     {
         static void Main(string[] args)
         {
+            const int numberOfPersons = 3;
             List<Person> people = new List<Person>();
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < numberOfPersons; i++)
             {
                 Console.Write($"Enter name {i}: ");
                 string name = Console.ReadLine();
 
-            inputAge:
                 Console.Write($"Enter age {i}: ");
 
                 if (int.TryParse(Console.ReadLine(), out int age))
@@ -28,16 +28,10 @@ namespace Homework10
                         people.Add(person);
                     }
                     else
-                    {
                         Console.WriteLine("Возраст должен быть > 0");
-                        goto inputAge;
-                    }
                 }
                 else
-                {
                     Console.WriteLine("Неверный формат возраста!");
-                    goto inputAge;
-                }
             }
             people.ForEach((p) =>
             {
