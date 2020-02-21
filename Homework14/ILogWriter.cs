@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Homework13
+﻿namespace Homework14
 {
     public interface ILogWriter
     {

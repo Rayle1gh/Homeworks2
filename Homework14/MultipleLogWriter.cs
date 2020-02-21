@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Homework13
+namespace Homework14
 {
     class MultipleLogWriter : AbstractLogWriter
     {
-        public List<AbstractLogWriter> LogWriters { get; private set; }
-
-        public MultipleLogWriter()
-        {
-            LogWriters = new List<AbstractLogWriter>();
-        }
-
+        private static MultipleLogWriter _multipleLogWriter;
+        private static List<AbstractLogWriter> _list;
+        private MultipleLogWriter() { }
         public override void LogWriting(string message)
         {
-            foreach (var item in LogWriters)
-            {
-                item.LogWriting(message);
-            }
+            _list.ForEach((a) => a.LogWriting(message));
+        }
+
+        public static MultipleLogWriter GetInstance(List<AbstractLogWriter> list)
+        {
+            _list = list;
+            return _multipleLogWriter ??= new MultipleLogWriter();
         }
     }
 }
