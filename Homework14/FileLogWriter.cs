@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Homework14
 {
-    class FileLogWriter : AbstractLogWriter, IDisposable
+    class FileLogWriter : AbstractLogWriter
     {
         private static FileLogWriter _fileLogWriter;
         private static StreamWriter _writer;
