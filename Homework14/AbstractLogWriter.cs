@@ -2,7 +2,7 @@
 
 namespace Homework14
 {
-    public abstract class AbstractLogWriter : ILogWriter
+    public abstract class AbstractLogWriter : ILogWriter, IDisposable
     {
         public enum LogLevel { Info, Error, Warning }
 
@@ -20,5 +20,9 @@ namespace Homework14
             LogWriting(String.Format(_logMessageTemplate, DateTime.Now, LogLevel.Warning, message));
         }
         public abstract void LogWriting(string message);
+        public virtual void Dispose()
+        {
+
+        }
     }
 }

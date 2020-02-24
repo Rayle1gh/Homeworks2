@@ -17,5 +17,12 @@ namespace Homework14
             _list = list;
             return _multipleLogWriter ??= new MultipleLogWriter();
         }
+        public override void Dispose()
+        {
+            foreach (var writer in _list)
+            {
+                writer?.Dispose();
+            }
+        }
     }
 }

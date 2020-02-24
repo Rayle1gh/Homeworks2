@@ -14,7 +14,7 @@ namespace Homework14
             _writer.WriteLine(message);
             _writer.Flush();
         }
-        public void Dispose()
+        public override void Dispose()
         {
             _writer?.Dispose();
         }

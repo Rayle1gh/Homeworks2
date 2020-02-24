@@ -11,11 +11,14 @@ namespace Homework14
             {
                 ConsoleLogWriter.GetInstance(), FileLogWriter.GetInstance()
             };
-            MultipleLogWriter mlw = MultipleLogWriter.GetInstance(list);
-            mlw.LogError("Error message");
-            mlw.LogInfo("Info message");
-            mlw.LogWarning("Warning message");
-            Console.ReadKey();
+
+            using var mlw = MultipleLogWriter.GetInstance(list);
+
+            {
+                mlw.LogError("Error message");
+                mlw.LogInfo("Info message");
+                mlw.LogWarning("Warning message");
+            }
         }
     }
 }
